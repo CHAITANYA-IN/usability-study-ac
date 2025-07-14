@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Policy
+    Version="1.0"
+    PolicyId="enable_upload_submission"
+    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-overrides">
+    <Description>enable_upload_submission if subject is enrolled in course</Description>
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                    <AttributeDesignator MustBePresent="false"
+                        AttributeId="in.ac.iitb.cse.bodhi.evalpro.access_subject.is_enrolled"
+                        Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                        DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">enable_upload_submission</AttributeValue>
+                    <AttributeDesignator MustBePresent="false"
+                        AttributeId="in.ac.iitb.cse.bodhi.evalpro.action.name"
+                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                        DataType="http://www.w3.org/2001/XMLSchema#string" />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+    <Rule RuleId="check_if_instructor_accesses_not_trashed_program_lab" Effect="Permit">
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">INSTRUCTOR</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.access_subject.role"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                </AllOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TA</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.access_subject.role"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.in_trash"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Apply>
+                </Apply>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.in_trash"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.program"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Apply>
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+    <Rule RuleId="check_if_student_and_lab_is_visible_and_published" Effect="Permit">
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">STUDENT</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.access_subject.role"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.is_lab_visible"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.is_exam"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.is_published"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.program"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.in_trash"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.in_trash"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.program"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-less-than-or-equal">
+                    <Apply
+                        FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime"
+                            DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                            MustBePresent="false" />
+                    </Apply>
+                    <Apply
+                        FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                        <AttributeDesignator
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_till"
+                            DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                            MustBePresent="false" />
+                    </Apply>
+                </Apply>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-greater-than-or-equal">
+                    <Apply
+                        FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime"
+                            DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                            MustBePresent="false" />
+                    </Apply>
+                    <Apply
+                        FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                        <AttributeDesignator
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from"
+                            DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                            MustBePresent="false" />
+                    </Apply>
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+    <Rule RuleId="check_if_student_accesses_program_exam" Effect="Permit">
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">STUDENT</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.access_subject.role"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.is_exam"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                        AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.in_trash"
+                        Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                        DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                        AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.in_trash"
+                        Category="in.ac.iitb.cse.bodhi.evalpro.program"
+                        DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.is_published"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.program"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean" />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-bag-size">
+                    <AttributeDesignator MustBePresent="false"
+                        AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.exam_start_time"
+                        Category="in.ac.iitb.cse.bodhi.evalpro.lab"
+                        DataType="http://www.w3.org/2001/XMLSchema#dateTime" />
+                    </Apply>
+                </Apply>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-bag-size">
+                        <AttributeDesignator MustBePresent="false"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.proctorlog.start_time"
+                            Category="in.ac.iitb.cse.bodhi.evalpro.proctorlog"
+                            DataType="http://www.w3.org/2001/XMLSchema#integer" />
+                    </Apply>
+                </Apply>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                        <AttributeDesignator
+                            Category="in.ac.iitb.cse.bodhi.evalpro.proctorlog"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.proctorlog.is_finished"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean"
+                            MustBePresent="false" />
+                    </Apply>
+                </Apply>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                        <AttributeDesignator
+                            Category="in.ac.iitb.cse.bodhi.evalpro.proctorlog"
+                            AttributeId="in.ac.iitb.cse.bodhi.evalpro.proctorlog.is_approved"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean"
+                            MustBePresent="false" />
+                    </Apply>
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+    <ObligationExpressions>
+        <ObligationExpression ObligationId="permission" FulfillOn="Permit">
+            <AttributeAssignmentExpression AttributeId="enable_upload_submission">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+            </AttributeAssignmentExpression>
+        </ObligationExpression>
+        <ObligationExpression ObligationId="permission" FulfillOn="Deny">
+            <AttributeAssignmentExpression AttributeId="enable_upload_submission">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+            </AttributeAssignmentExpression>
+        </ObligationExpression>
+    </ObligationExpressions>
+</Policy>

@@ -1,0 +1,76 @@
+{
+    "uid": "lab-submission-policy",
+    "effect": "allow",
+    "description": "Allow submission uploads within lab time window with valid IP and subject's mode",
+    "rules": {
+        "subject": {
+            "$.mode": {
+                "condition": "Equals",
+                "value": "STUDENT"
+            },
+            "$.role": {
+                "condition": "AnyOf",
+                "values": [
+                    {
+                        "condition": "Equals",
+                        "value": "instructor"
+                    },
+                    {
+                        "condition": "Equals",
+                        "value": "student"
+                    }
+                ]
+            },
+            "$.ip": {
+                "condition": "InIPRangeAttribute",
+                "ace": "resource",
+                "path": "$.lab.ip_ranges"
+            }
+        },
+        "resource": {
+            "$.course.in_trash": {
+                "condition": "Equals",
+                "value": "false"
+            },
+            "$.course.visible": {
+                "condition": "Equals",
+                "value": "true"
+            },
+            "$.lab.in_trash": {
+                "condition": "Equals",
+                "value": "false"
+            },
+            "$.lab.visible": {
+                "condition": "Equals",
+                "value": "true"
+            },
+            "$.lab.start": {
+                "condition": "LteAttribute",
+                "ace": "context",
+                "path": "$.current_datetime"
+            },
+            "$.lab.end": {
+                "condition": "GteAttribute",
+                "ace": "context",
+                "path": "$.current_datetime"
+            },
+            "$.program.in_trash": {
+                "condition": "Equals",
+                "value": "false"
+            },
+            "$.program.visible": {
+                "condition": "Equals",
+                "value": "true"
+            }
+        },
+        "action": {
+            "$.type": {
+                "condition": "Equals",
+                "value": "upload_submission"
+            }
+        },
+        "context": {}
+    },
+    "targets": {},
+    "priority": 0
+}
