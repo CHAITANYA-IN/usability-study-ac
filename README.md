@@ -29,12 +29,13 @@ Vakt expresses access control policies as Python vakt.Policy objects and accepts
 │   ├── policy-rules.csv
 │   ├── requests.json
 │   └── run.sh
-├── instructions.pdf
 ├── opa_rego
 │   ├── install.sh
 │   ├── policy.rego
 │   ├── requests.json
 │   └── run.sh
+├── README.pdf
+├── README.md
 ├── py-abac_json
 │   ├── enforcer.py
 │   ├── install.sh
@@ -107,4 +108,4 @@ Modify the Allow Upload Submission to allow accept submissions on behalf of stud
 
 `Keep the new policies alongwith the previous one.`
 
-After completing the above three tasks, please submit your feedback on using these frameworks through the Google [form](https://forms.gle/dDyk5nziK27Yt5jF6)
+After completing the above six tasks in assigned Access Control Frameworks, please submit your feedback on using these frameworks through the Google [form](https://forms.gle/dDyk5nziK27Yt5jF6)
