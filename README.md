@@ -12,6 +12,8 @@ Py-ABAC expresses access control policies in JSON format and accepts access requ
 
 Vakt expresses access control policies as Python vakt.Policy objects and accepts access requests as Python vakt.Inquiry objects. Please refer the README section for more information on [Vakt](https://github.com/kolotaev/vakt).
 
+Please go through [Bodhitree](./bodhitree.md) for understanding Bodhitree platform, its functionalities and resources to be protected.
+
 ## Example
 
 ```sh
@@ -74,17 +76,21 @@ To complete the tasks, you have to modify both policy and request as required. I
 
 `For every Task, please note down the time taken to complete the task.`
 
+`Create new file(s) for each task.`
+
 ### Task 1
 
-Update the above example policy to restrict users(subjects) with role JTA in STUDENT mode to allow upload submission if course, lab and corresponding program are visible and are not in trash.
+Update the example policy where authenticated users with role STA or JTA are allowed to upload submission for a program in TEST_DRIVE mode, provided the course, lab and corresponding program are not in trash.
+Deny the upload submission operation for users with role INSTRUCTOR in INSTRUCTOR Mode.
 
 ### Task 2
 
-Update the example policy for all users by removing IP restriction.
+Update the example policy where authenticated users with role STA or JTA in STUDENT mode are allowed to upload submission for a program provided the course, lab and corresponding program are visible, not in trash. Lab is accessed in published timeframe.
+Remove IP-based restriction for users with role - Instructor, STA or JTA in STUDENT mode.
 
 ### Task 3
 
-Implement a new policy to allow an authenticated user to view course participants only if they are a participant in the course. Also, the course students can view participants only if the course is published.
+Implement a new policy to allow an authenticated user with role INSTRUCTOR or STA in INSTRUCTOR mode to evaluate all student submissions only after lab's published timeframe gets over. Authenticated users with role JTA or STUDENT should not be allowed. Any user in STUDENT mode should not be allowed. Make sure respective course, lab and program are not in trash.
 
 ### Task 4
 
@@ -96,15 +102,17 @@ Otherwise, if the course is published, the lab and program are visible, the lab 
 
 ### Task 5
 
-Implement a new policy to allow authenticated users to run visible test cases only if they have already submitted for the program, if there are any test cases in visible state, and it has not been run yet for that submission.
+Implement a new policy to allow authenticated users to run visible test cases only if they uploaded submission for the program, if program has any test cases in visible state, and if submission is not evaluated for the visible testcases before.
 
-The user can be an instructor testing the program, in which case the course, lab, and program must not be in the trash.
+The user can be an instructor testing the program, in which case the respective course, lab, and program must not be in the trash.
 
-Otherwise, if the user is a student in the course or an instructor switched to student mode, they can run visible test cases only if the course is published, the lab and program are visible, and none of them are in the trash.
+Otherwise, if the user is a student in the course or an instructor switched to student mode, they can run visible test cases only if the course is published, the lab and program are visible, none of them are in the trash and lab is accessed after published time.
+
+*Do not add testcase object in access request.*
 
 ### Task 6
 
-Modify the Allow Upload Submission to allow accept submissions on behalf of student
+Update the example policy to allow authenticated users with role INSTRUCTOR, STA or JTA to upload submissions on behalf of student, anytime after the lab is published.
 
 `Keep the new policies alongwith the previous one.`
 
