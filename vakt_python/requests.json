@@ -1,6 +1,6 @@
 [
     {
-        "subject": {
+        "user": {
             "id": "1",
             "authenticated": true,
             "role": "student",
@@ -12,12 +12,12 @@
         },
         "course": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "published": true
         },
         "lab": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "visible": true,
             "start": "2025-06-12T08:00:00+05:30",
             "end": "2025-06-12T18:00:00+05:30",
@@ -29,12 +29,12 @@
         },
         "program": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "visible": true
         }
     },
     {
-        "subject": {
+        "user": {
             "id": "1",
             "authenticated": true,
             "role": "instructor",
@@ -46,12 +46,12 @@
         },
         "course": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "published": true
         },
         "lab": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "visible": true,
             "start": "2025-03-01T08:00:00+05:30",
             "end": "2025-06-30T15:00:00+05:30",
@@ -63,12 +63,12 @@
         },
         "program": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "visible": true
         }
     },
     {
-        "subject": {
+        "user": {
             "id": "1",
             "authenticated": true,
             "role": "instructor",
@@ -80,12 +80,12 @@
         },
         "course": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "published": true
         },
         "lab": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "visible": true,
             "start": "2025-03-01T08:00:00+05:30",
             "end": "2025-06-12T17:00:00+05:30",
@@ -97,7 +97,7 @@
         },
         "program": {
             "id": "1",
-            "in_trash": false,
+            "trashed": false,
             "visible": true
         }
     }

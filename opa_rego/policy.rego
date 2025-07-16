@@ -10,12 +10,12 @@ allow_upload_submission if {
     input.subject.authenticated
     input.subject.role == "student"
     input.course.published
-    not input.course.in_trash
+    not input.course.trashed
     within_allowed_lab_timeframe
     input.lab.visible
-    not input.lab.in_trash
+    not input.lab.trashed
     input.program.visible
-    not input.program.in_trash
+    not input.program.trashed
     ip_in_allowed_ip_ranges
 }
 
@@ -24,12 +24,12 @@ allow_upload_submission if {
     input.subject.role == "instructor"
     input.subject.mode == "STUDENT"
     input.course.published
-    not input.course.in_trash
+    not input.course.trashed
     within_allowed_lab_timeframe
     input.lab.visible
-    not input.lab.in_trash
+    not input.lab.trashed
     input.program.visible
-    not input.program.in_trash
+    not input.program.trashed
     ip_in_allowed_ip_ranges
 }
 
@@ -37,9 +37,9 @@ allow_upload_submission if {
     input.subject.authenticated
     input.subject.role == "instructor"
     input.subject.mode == "TEST_DRIVE"
-    not input.course.in_trash
-    not input.lab.in_trash
-    not input.program.in_trash
+    not input.course.trashed
+    not input.lab.trashed
+    not input.program.trashed
 }
 
 ip_in_allowed_ip_ranges if {

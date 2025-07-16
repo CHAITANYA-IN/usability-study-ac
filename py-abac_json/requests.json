@@ -1,6 +1,6 @@
 [
     {
-        "subject": {
+        "user": {
             "id": "",
             "attributes": {
                 "id": 1,
@@ -14,12 +14,12 @@
             "attributes": {
                 "course": {
                     "id": 1,
-                    "in_trash": "false",
+                    "trashed": "false",
                     "visible": "true"
                 },
                 "lab": {
                     "id": 1,
-                    "in_trash": "false",
+                    "trashed": "false",
                     "visible": "true",
                     "start": "2023-10-01T11:00:00",
                     "duration": "02:00:00",
@@ -36,7 +36,7 @@
                 },
                 "program": {
                     "id": 1,
-                    "in_trash": "false",
+                    "trashed": "false",
                     "visible": "true"
                 }
             }
@@ -52,7 +52,7 @@
         }
     },
     {
-        "subject": {
+        "user": {
             "id": "",
             "attributes": {
                 "id": 1,
@@ -66,12 +66,12 @@
             "attributes": {
                 "course": {
                     "id": 1,
-                    "in_trash": "false",
+                    "trashed": "false",
                     "visible": "true"
                 },
                 "lab": {
                     "id": 1,
-                    "in_trash": "false",
+                    "trashed": "false",
                     "visible": "true",
                     "start": "2023-10-02T11:00:00",
                     "duration": "02:00:00",
@@ -88,7 +88,7 @@
                 },
                 "program": {
                     "id": 1,
-                    "in_trash": "false",
+                    "trashed": "false",
                     "visible": "true"
                 }
             }

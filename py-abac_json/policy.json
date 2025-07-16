@@ -3,7 +3,7 @@
     "effect": "allow",
     "description": "Allow submission uploads within lab time window with valid IP and subject's mode",
     "rules": {
-        "subject": {
+        "user": {
             "$.mode": {
                 "condition": "Equals",
                 "value": "STUDENT"
@@ -28,7 +28,7 @@
             }
         },
         "resource": {
-            "$.course.in_trash": {
+            "$.course.trashed": {
                 "condition": "Equals",
                 "value": "false"
             },
@@ -36,7 +36,7 @@
                 "condition": "Equals",
                 "value": "true"
             },
-            "$.lab.in_trash": {
+            "$.lab.trashed": {
                 "condition": "Equals",
                 "value": "false"
             },
@@ -54,7 +54,7 @@
                 "ace": "context",
                 "path": "$.current_datetime"
             },
-            "$.program.in_trash": {
+            "$.program.trashed": {
                 "condition": "Equals",
                 "value": "false"
             },

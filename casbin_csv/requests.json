@@ -1,7 +1,7 @@
 [
     [
         {
-            "entity_type": "subject",
+            "entity_type": "user",
             "authenticated": true,
             "role": "student",
             "mode": "STUDENT",
@@ -10,14 +10,14 @@
         {
             "entity_type": "course",
             "published": 1,
-            "in_trash": false
+            "trashed": false
         },
         {
             "entity_type": "lab",
             "start": "2025-03-01T08:00:00+05:30",
             "end": "2025-03-30T15:00:00+05:30",
             "visible": true,
-            "in_trash": false,
+            "trashed": false,
             "allowed_ip_ranges": [
                 [
                     "10.129.131.4",
@@ -36,7 +36,7 @@
         {
             "entity_type": "program",
             "visible": true,
-            "in_trash": false
+            "trashed": false
         },
         {
             "entity_type": "act",
@@ -45,7 +45,7 @@
     ],
     [
         {
-            "entity_type": "subject",
+            "entity_type": "user",
             "authenticated": true,
             "role": "instructor",
             "mode": "STUDENT",
@@ -54,14 +54,14 @@
         {
             "entity_type": "course",
             "published": 1,
-            "in_trash": false
+            "trashed": false
         },
         {
             "entity_type": "lab",
             "start": "2025-03-01T08:00:00+05:30",
             "end": "2025-03-30T15:00:00+05:30",
             "visible": true,
-            "in_trash": false,
+            "trashed": false,
             "allowed_ip_ranges": [
                 [
                     "10.129.131.4",
@@ -80,7 +80,7 @@
         {
             "entity_type": "program",
             "visible": true,
-            "in_trash": false
+            "trashed": false
         },
         {
             "entity_type": "act",
@@ -89,7 +89,7 @@
     ],
     [
         {
-            "entity_type": "subject",
+            "entity_type": "user",
             "authenticated": true,
             "role": "instructor",
             "mode": "TEST_DRIVE",
@@ -98,14 +98,14 @@
         {
             "entity_type": "course",
             "published": 1,
-            "in_trash": false
+            "trashed": false
         },
         {
             "entity_type": "lab",
             "start": "2025-03-01T08:00:00+05:30",
             "end": "2025-03-30T15:00:00+05:30",
             "visible": true,
-            "in_trash": false,
+            "trashed": false,
             "allowed_ip_ranges": [
                 [
                     "10.129.131.4",
@@ -124,7 +124,7 @@
         {
             "entity_type": "program",
             "visible": true,
-            "in_trash": false
+            "trashed": false
         },
         {
             "entity_type": "act",
