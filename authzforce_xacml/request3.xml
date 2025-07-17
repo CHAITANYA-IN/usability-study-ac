@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+         ReturnPolicyIdList="false" CombinedDecision="false">
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.action">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.action.name" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">enable_upload_submission</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.user">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.authenticated" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.role" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instructor</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.mode" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TEST_DRIVE</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.course">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.trashed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.lab">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.trashed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.program">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.trashed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+</Request>

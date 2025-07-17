@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+         ReturnPolicyIdList="false" CombinedDecision="false">
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.action">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.action.name" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">enable_upload_submission</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.user">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.authenticated" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.role" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instructor</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.mode" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">STUDENT</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.course">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.published" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.trashed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.lab">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.visible" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.trashed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-01T09:00:00+05:30</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_till" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-01T17:00:00+05:30</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.program">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.visible" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.trashed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+    <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment">
+        <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-15T10:00:00+05:30</AttributeValue>
+        </Attribute>
+    </Attributes>
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.environment">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.environment.ip_integer" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3232235786</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+</Request>
