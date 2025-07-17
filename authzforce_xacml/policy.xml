@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Policy
+    xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
     Version="1.0"
     PolicyId="enable_upload_submission"
     RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-overrides">

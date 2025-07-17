@@ -1,6 +1,6 @@
 [
     {
-        "user": {
+        "subject": {
             "id": "",
             "attributes": {
                 "id": 1,
@@ -52,7 +52,7 @@
         }
     },
     {
-        "user": {
+        "subject": {
             "id": "",
             "attributes": {
                 "id": 1,

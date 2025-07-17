@@ -1,7 +1,7 @@
 import datetime
 import json
 import vakt
-from vakt_python.policy import policies
+from policy import policies
 
 storage = vakt.MemoryStorage()
 for policy in policies:
@@ -18,7 +18,7 @@ for request_json in requests_json:
     }
     inquiry = vakt.Inquiry(
         resource=request_json['resource'],
-        subject=request_json['subject'],
+        subject=request_json['user'],
         context={
             'currentTime': datetime.datetime.now().replace(tzinfo=datetime.timezone.utc).isoformat()
             # "2025-06-12T10:00:00+05:30"

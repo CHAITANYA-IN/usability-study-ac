@@ -1,3 +1,5 @@
 #!/bin/bash
 
-PYTHONPATH=$(pwd) python3 enforcer.py
+cd "$(dirname "$0")"
+
+PYTHONPATH="." python3 enforcer.py

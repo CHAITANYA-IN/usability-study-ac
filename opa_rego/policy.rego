@@ -7,8 +7,8 @@ default ip_in_allowed_ip_ranges := false
 default within_allowed_lab_timeframe := false
 
 allow_upload_submission if {
-    input.subject.authenticated
-    input.subject.role == "student"
+    input.user.authenticated
+    input.user.role == "student"
     input.course.published
     not input.course.trashed
     within_allowed_lab_timeframe
@@ -20,9 +20,9 @@ allow_upload_submission if {
 }
 
 allow_upload_submission if {
-    input.subject.authenticated
-    input.subject.role == "instructor"
-    input.subject.mode == "STUDENT"
+    input.user.authenticated
+    input.user.role == "instructor"
+    input.user.mode == "STUDENT"
     input.course.published
     not input.course.trashed
     within_allowed_lab_timeframe
@@ -34,9 +34,9 @@ allow_upload_submission if {
 }
 
 allow_upload_submission if {
-    input.subject.authenticated
-    input.subject.role == "instructor"
-    input.subject.mode == "TEST_DRIVE"
+    input.user.authenticated
+    input.user.role == "instructor"
+    input.user.mode == "TEST_DRIVE"
     not input.course.trashed
     not input.lab.trashed
     not input.program.trashed
@@ -48,7 +48,7 @@ ip_in_allowed_ip_ranges if {
     range = input.lab.allowed_ip_ranges[_]
     start_ip := ip_to_number(range[0])
     end_ip := ip_to_number(range[1])
-    machine_ip := ip_to_number(input.subject.ip_address)
+    machine_ip := ip_to_number(input.user.ip_address)
 
     machine_ip >= start_ip
     machine_ip <= end_ip

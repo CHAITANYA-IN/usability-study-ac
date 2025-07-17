@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip install vakt
+python3 -m pip install vakt

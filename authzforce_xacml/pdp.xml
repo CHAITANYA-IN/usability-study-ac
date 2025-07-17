@@ -3,7 +3,7 @@
    <policyProvider id="rootPolicyProvider" xsi:type="StaticPolicyProvider">
       <policyLocation>${PARENT_DIR}/policy.xml</policyLocation>
    </policyProvider>
-    <rootPolicyRef>in.ac.iitb.cse.evalpro.course.allow_upload_submission</rootPolicyRef>
+    <rootPolicyRef>enable_upload_submission</rootPolicyRef>
    <ioProcChain>
       <requestPreproc>urn:ow2:authzforce:feature:pdp:request-preproc:xacml-json:default-lax</requestPreproc>
       <resultPostproc>urn:ow2:authzforce:feature:pdp:result-postproc:xacml-json:default</resultPostproc>

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip install casbin
+python3 -m pip install casbin

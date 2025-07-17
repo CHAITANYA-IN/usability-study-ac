@@ -9,7 +9,7 @@ CONF_PATH = "."
 
 MODEL_CONF_FILE_PATH = f"{CONF_PATH}/policy-meta.conf"
 POLICY_RULES_FILE_PATH = f"{CONF_PATH}/policy-rules.csv"
-REQUESTS_FILE_PATH = f"{CONF_PATH}/request.json"
+REQUESTS_FILE_PATH = f"{CONF_PATH}/requests.json"
 
 e = casbin.Enforcer(MODEL_CONF_FILE_PATH, POLICY_RULES_FILE_PATH)
 

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-python3 enforcer.py
+cd "$(dirname "$0")"
+
+python3 ./enforcer.py

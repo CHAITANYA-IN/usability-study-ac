@@ -1,3 +1,5 @@
 #!/bin/bash
 
-./authzforce-pdp-cli.jar ./pdp.xml ./request.xml
+cd "$(dirname "$0")"
+
+./authzforce-pdp-cli -p -t XACML_XML ./pdp.xml ./request.xml

@@ -1,6 +1,6 @@
 import vakt
 from vakt.rules import Any
-from vakt_python.additional_rules import InIPRangesResource, DateTimeBetweenResource
+from additional_rules import InIPRangesResource, DateTimeBetweenResource
 
 policies = [
     vakt.Policy(
