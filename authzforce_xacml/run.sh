@@ -2,4 +2,7 @@
 
 cd "$(dirname "$0")"
 
-./authzforce-pdp-cli -p -t XACML_XML ./pdp.xml ./request.xml
+for count in {1..3}; do
+    echo "Request $count"
+    ./authzforce-pdp-cli -p -t XACML_XML ./pdp.xml ./request$count.xml
+done
