@@ -4,6 +4,10 @@
     "description": "Allow submission uploads within lab time window with valid IP and subject's mode",
     "rules": {
         "subject": {
+            "$.authenticated":{
+                "condition": "Equals",
+                "value": "true"
+            },
             "$.mode": {
                 "condition": "Equals",
                 "value": "STUDENT"

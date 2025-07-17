@@ -3,6 +3,7 @@
         "subject": {
             "id": "",
             "attributes": {
+                "authenticated": "true",
                 "id": 1,
                 "role": "instructor",
                 "mode": "STUDENT",
@@ -55,6 +56,7 @@
         "subject": {
             "id": "",
             "attributes": {
+                "authenticated": "true",
                 "id": 1,
                 "role": "student",
                 "mode": "STUDENT",
