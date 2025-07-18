@@ -24,17 +24,37 @@
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.trashed" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
         </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.id"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
     </Attributes>
 
     <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.lab">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.trashed" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
         </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.id"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.course"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
     </Attributes>
 
     <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.program">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.trashed" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.lab"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.id"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
         </Attribute>
     </Attributes>
 

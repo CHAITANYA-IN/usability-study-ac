@@ -12,7 +12,7 @@
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">enable_upload_submission</AttributeValue>
-                    <AttributeDesignator 
+                    <AttributeDesignator
                         MustBePresent="false"
                         AttributeId="in.ac.iitb.cse.bodhi.evalpro.action.name"
                         Category="in.ac.iitb.cse.bodhi.evalpro.action"
@@ -26,7 +26,7 @@
         <Description>
             Allow authenticated students to upload submissions to a valid course, lab, and program within the allowed timeframe and IP range.
         </Description>
-        
+
         <Condition>
             <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
                 <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
@@ -47,6 +47,25 @@
                             DataType="http://www.w3.org/2001/XMLSchema#string" />
                     </Apply>
                 </Apply>
+
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.lab" Category="in.ac.iitb.cse.bodhi.evalpro.program" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.id" Category="in.ac.iitb.cse.bodhi.evalpro.lab" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                </Apply>
+
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.course" Category="in.ac.iitb.cse.bodhi.evalpro.lab" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.id" Category="in.ac.iitb.cse.bodhi.evalpro.course" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                </Apply>
+
                 <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
@@ -178,7 +197,7 @@
                     </Apply>
                 </Apply>
                 <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
-                    
+
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than-or-equal">
                         <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
                             <AttributeDesignator
@@ -189,7 +208,7 @@
                         </Apply>
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3232235776</AttributeValue>
                     </Apply>
-                    
+
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
                         <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
                             <AttributeDesignator
@@ -205,7 +224,7 @@
             </Apply>
         </Condition>
     </Rule>
-    
+
     <Rule RuleId="Permit_Instructor_In_Student_Mode" Effect="Permit">
         <Description>
             Allows an instructor in "STUDENT" mode to upload if all course, lab, program, timeframe, and IP constraints are met.
@@ -228,6 +247,24 @@
                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">STUDENT</AttributeValue>
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
                         <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.mode" Category="in.ac.iitb.cse.bodhi.evalpro.user" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </Apply>
+                </Apply>
+
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.lab" Category="in.ac.iitb.cse.bodhi.evalpro.program" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.id" Category="in.ac.iitb.cse.bodhi.evalpro.lab" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                </Apply>
+
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.course" Category="in.ac.iitb.cse.bodhi.evalpro.lab" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.id" Category="in.ac.iitb.cse.bodhi.evalpro.course" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
                     </Apply>
                 </Apply>
 
@@ -322,6 +359,24 @@
                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TEST_DRIVE</AttributeValue>
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
                         <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.mode" Category="in.ac.iitb.cse.bodhi.evalpro.user" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </Apply>
+                </Apply>
+
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.lab" Category="in.ac.iitb.cse.bodhi.evalpro.program" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.id" Category="in.ac.iitb.cse.bodhi.evalpro.lab" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                </Apply>
+
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.course" Category="in.ac.iitb.cse.bodhi.evalpro.lab" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </Apply>
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator MustBePresent="true" AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.id" Category="in.ac.iitb.cse.bodhi.evalpro.course" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
                     </Apply>
                 </Apply>
 

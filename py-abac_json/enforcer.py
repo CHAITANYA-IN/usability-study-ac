@@ -15,12 +15,13 @@ class TimeAttributeProvider(AttributeProvider):
     def get_delta_from_duration_string(self, duration_string):
         return datetime.datetime.strptime(duration_string, "%H:%M:%S") - datetime.datetime.strptime("0", "%S")
 
-policy_json = json.load(open("policy.json", "r", encoding="utf-8"))
-
-policy = Policy.from_json(policy_json)
-
 storage = MemoryStorage()
-storage.add(policy)
+
+policies_json = json.load(open("policy.json", "r", encoding="utf-8"))
+
+for policy_json in policies_json:
+    policy = Policy.from_json(policy_json)
+    storage.add(policy)
 
 pdp = PDP(storage, EvaluationAlgorithm.DENY_OVERRIDES, [TimeAttributeProvider()])
 

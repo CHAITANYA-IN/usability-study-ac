@@ -17,6 +17,8 @@ allow_upload_submission if {
     input.program.visible
     not input.program.trashed
     ip_in_allowed_ip_ranges
+    input.lab.course == input.course.id
+    input.program.lab == input.lab.id
 }
 
 allow_upload_submission if {
@@ -31,6 +33,8 @@ allow_upload_submission if {
     input.program.visible
     not input.program.trashed
     ip_in_allowed_ip_ranges
+    input.lab.course == input.course.id
+    input.program.lab == input.lab.id
 }
 
 allow_upload_submission if {
@@ -40,6 +44,8 @@ allow_upload_submission if {
     not input.course.trashed
     not input.lab.trashed
     not input.program.trashed
+    input.lab.course == input.course.id
+    input.program.lab == input.lab.id
 }
 
 ip_in_allowed_ip_ranges if {

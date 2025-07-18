@@ -107,7 +107,7 @@ Implement a new policy to allow authenticated users to download their own submis
 
 Otherwise, if the course is published, the lab and program are visible, the lab submission deadline has already passed, and the course, lab, and program are not in the trash, then allow downloading the submission owned by the user. The user can be either a course student or an instructor switched to student mode, in this case.
 
-*Modify access request by including submission object.*
+*Modify access request by including submission object. Note that testing a program implies TEST_DRIVE mode.*
 
 ### Task 5
 
@@ -117,11 +117,11 @@ The user can be an instructor testing the program, in which case the respective 
 
 Otherwise, if the user is a student in the course or an instructor switched to student mode, they can run visible test cases only if the course is published, the lab and program are visible, none of them are in the trash and lab is accessed after published time.
 
-*Do not add testcase object in access request, frame like ProgramState example in the slides.*
+*Do not add testcase object in access request, frame like ProgramState example in the slides. Note that testing a program implies TEST_DRIVE mode.*
 
 ### Task 6
 
-Update the example policy to allow authenticated users with role INSTRUCTOR, STA or JTA to upload submissions on behalf of student, anytime after the lab is published.
+Update the example policy to allow authenticated users with role INSTRUCTOR, STA or JTA to upload submissions on behalf of student, anytime after the lab's published start time.
 
 ## Feedback Form
 

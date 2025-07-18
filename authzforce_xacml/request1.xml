@@ -14,9 +14,6 @@
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
         </Attribute>
-    </Attributes>
-    
-    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.user">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.user.role"
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">student</AttributeValue>
@@ -28,12 +25,13 @@
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
         </Attribute>
-    </Attributes>
-
-    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.course">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.trashed"
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.course.id"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
         </Attribute>
     </Attributes>
 
@@ -42,30 +40,18 @@
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
         </Attribute>
-    </Attributes>
-
-    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.lab">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.trashed"
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
         </Attribute>
-    </Attributes>
-
-    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.program">
-        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.visible"
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.id"
                    IncludeInResult="false">
-            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
         </Attribute>
-    </Attributes>
-
-    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.program">
-        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.trashed"
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.course"
                    IncludeInResult="false">
-            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
         </Attribute>
-    </Attributes>
-
-    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.lab">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-19T00:39:00+05:30</AttributeValue>
         </Attribute>
@@ -74,6 +60,26 @@
         </Attribute>
     </Attributes>
 
+    <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.program">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.visible"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.id"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.lab"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.program.trashed"
+                   IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
+        </Attribute>
+    </Attributes>
+
+
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-15T10:00:00+05:30</AttributeValue>
@@ -81,7 +87,7 @@
     </Attributes>
 
     <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.environment">
-        <Attribute 
+        <Attribute
             AttributeId="in.ac.iitb.cse.bodhi.evalpro.environment.ip_integer"
             IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3232235786</AttributeValue>

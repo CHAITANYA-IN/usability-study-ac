@@ -1,80 +1,146 @@
-{
-    "uid": "lab-submission-policy",
-    "effect": "allow",
-    "description": "Allow submission uploads within lab time window with valid IP and subject's mode",
-    "rules": {
-        "subject": {
-            "$.authenticated":{
-                "condition": "Equals",
-                "value": "true"
+[
+    {
+        "uid": "lab-submission-policy",
+        "effect": "allow",
+        "description": "Allow submission uploads within lab time window with valid IP and subject's mode",
+        "rules": {
+            "subject": {
+                "$.authenticated": {
+                    "condition": "Equals",
+                    "value": "true"
+                },
+                "$.mode": {
+                    "condition": "Equals",
+                    "value": "STUDENT"
+                },
+                "$.role": {
+                    "condition": "AnyOf",
+                    "values": [
+                        {
+                            "condition": "Equals",
+                            "value": "instructor"
+                        },
+                        {
+                            "condition": "Equals",
+                            "value": "student"
+                        }
+                    ]
+                },
+                "$.ip": {
+                    "condition": "InIPRangeAttribute",
+                    "ace": "resource",
+                    "path": "$.lab.ip_ranges"
+                }
             },
-            "$.mode": {
-                "condition": "Equals",
-                "value": "STUDENT"
+            "resource": {
+                "$.course.trashed": {
+                    "condition": "Equals",
+                    "value": "false"
+                },
+                "$.course.visible": {
+                    "condition": "Equals",
+                    "value": "true"
+                },
+                "$.lab.trashed": {
+                    "condition": "Equals",
+                    "value": "false"
+                },
+                "$.lab.visible": {
+                    "condition": "Equals",
+                    "value": "true"
+                },
+                "$.lab.start": {
+                    "condition": "LteAttribute",
+                    "ace": "context",
+                    "path": "$.current_datetime"
+                },
+                "$.lab.end": {
+                    "condition": "GteAttribute",
+                    "ace": "context",
+                    "path": "$.current_datetime"
+                },
+                "$.lab.course": {
+                    "condition": "EqualsAttribute",
+                    "ace": "resource",
+                    "path": "$.course.id"
+                },
+                "$.program.trashed": {
+                    "condition": "Equals",
+                    "value": "false"
+                },
+                "$.program.visible": {
+                    "condition": "Equals",
+                    "value": "true"
+                },
+                "$.program.lab": {
+                    "condition": "EqualsAttribute",
+                    "ace": "resource",
+                    "path": "$.lab.id"
+                }
             },
-            "$.role": {
-                "condition": "AnyOf",
-                "values": [
-                    {
-                        "condition": "Equals",
-                        "value": "instructor"
-                    },
-                    {
-                        "condition": "Equals",
-                        "value": "student"
-                    }
-                ]
+            "action": {
+                "$.type": {
+                    "condition": "Equals",
+                    "value": "upload_submission"
+                }
             },
-            "$.ip": {
-                "condition": "InIPRangeAttribute",
-                "ace": "resource",
-                "path": "$.lab.ip_ranges"
-            }
+            "context": {}
         },
-        "resource": {
-            "$.course.trashed": {
-                "condition": "Equals",
-                "value": "false"
-            },
-            "$.course.visible": {
-                "condition": "Equals",
-                "value": "true"
-            },
-            "$.lab.trashed": {
-                "condition": "Equals",
-                "value": "false"
-            },
-            "$.lab.visible": {
-                "condition": "Equals",
-                "value": "true"
-            },
-            "$.lab.start": {
-                "condition": "LteAttribute",
-                "ace": "context",
-                "path": "$.current_datetime"
-            },
-            "$.lab.end": {
-                "condition": "GteAttribute",
-                "ace": "context",
-                "path": "$.current_datetime"
-            },
-            "$.program.trashed": {
-                "condition": "Equals",
-                "value": "false"
-            },
-            "$.program.visible": {
-                "condition": "Equals",
-                "value": "true"
-            }
-        },
-        "action": {
-            "$.type": {
-                "condition": "Equals",
-                "value": "upload_submission"
-            }
-        },
-        "context": {}
+        "targets": {},
+        "priority": 0
     },
-    "targets": {},
-    "priority": 0
-}
+    {
+        "uid": "lab-test-submission-policy",
+        "effect": "allow",
+        "description": "Allow instructor to upload submissions in test drive mode",
+        "rules": {
+            "subject": {
+                "$.authenticated": {
+                    "condition": "Equals",
+                    "value": "true"
+                },
+                "$.mode": {
+                    "condition": "Equals",
+                    "value": "TEST_DRIVE"
+                },
+                "$.role": {
+                    "condition": "Equals",
+                    "value": "instructor"
+                }
+            },
+            "resource": {
+                "$.course.trashed": {
+                    "condition": "Equals",
+                    "value": "false"
+                },
+                "$.lab.trashed": {
+                    "condition": "Equals",
+                    "value": "false"
+                },
+                "$.lab.course": {
+                    "condition": "EqualsAttribute",
+                    "ace": "resource",
+                    "path": "$.course.id"
+                },
+                "$.program.trashed": {
+                    "condition": "Equals",
+                    "value": "false"
+                },
+                "$.program.lab": {
+                    "condition": "EqualsAttribute",
+                    "ace": "resource",
+                    "path": "$.lab.id"
+                }
+            },
+            "action": {
+                "$.type": {
+                    "condition": "Equals",
+                    "value": "upload_submission"
+                }
+            },
+            "context": {}
+        },
+        "targets": {},
+        "priority": 1
+    }
+]
