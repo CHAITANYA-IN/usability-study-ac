@@ -4,7 +4,7 @@
 
     <Attributes Category="in.ac.iitb.cse.bodhi.evalpro.action">
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.action.name" IncludeInResult="false">
-            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">enable_upload_submission</AttributeValue>
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">upload_submission</AttributeValue>
         </Attribute>
     </Attributes>
 
@@ -40,10 +40,10 @@
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.trashed" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">false</AttributeValue>
         </Attribute>
-        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from" IncludeInResult="false">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.start" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-01T09:00:00+05:30</AttributeValue>
         </Attribute>
-        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_till" IncludeInResult="false">
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.end" IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-01T17:00:00+05:30</AttributeValue>
         </Attribute>
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.id"
@@ -53,6 +53,9 @@
         <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.course"
                    IncludeInResult="false">
             <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+        </Attribute>
+        <Attribute AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.ip_allowed" IncludeInResult="false">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
         </Attribute>
     </Attributes>
 

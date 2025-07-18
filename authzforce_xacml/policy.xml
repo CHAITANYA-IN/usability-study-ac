@@ -11,7 +11,7 @@
         <AnyOf>
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">enable_upload_submission</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">upload_submission</AttributeValue>
                     <AttributeDesignator
                         MustBePresent="false"
                         AttributeId="in.ac.iitb.cse.bodhi.evalpro.action.name"
@@ -134,7 +134,7 @@
                             FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
                             <AttributeDesignator
                                 Category="in.ac.iitb.cse.bodhi.evalpro.lab"
-                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_till"
+                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.end"
                                 DataType="http://www.w3.org/2001/XMLSchema#dateTime"
                                 MustBePresent="false" />
                         </Apply>
@@ -152,7 +152,7 @@
                             FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
                             <AttributeDesignator
                                 Category="in.ac.iitb.cse.bodhi.evalpro.lab"
-                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from"
+                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.start"
                                 DataType="http://www.w3.org/2001/XMLSchema#dateTime"
                                 MustBePresent="false" />
                         </Apply>
@@ -172,7 +172,7 @@
                             FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
                             <AttributeDesignator
                                 Category="in.ac.iitb.cse.bodhi.evalpro.lab"
-                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_till"
+                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.end"
                                 DataType="http://www.w3.org/2001/XMLSchema#dateTime"
                                 MustBePresent="false" />
                         </Apply>
@@ -190,7 +190,7 @@
                             FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
                             <AttributeDesignator
                                 Category="in.ac.iitb.cse.bodhi.evalpro.lab"
-                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from"
+                                AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.start"
                                 DataType="http://www.w3.org/2001/XMLSchema#dateTime"
                                 MustBePresent="false" />
                         </Apply>
@@ -310,7 +310,7 @@
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime" DataType="http://www.w3.org/2001/XMLSchema#dateTime" MustBePresent="true"/>
                     </Apply>
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
-                        <AttributeDesignator Category="in.ac.iitb.cse.bodhi.evalpro.lab" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_till" DataType="http://www.w3.org/2001/XMLSchema#dateTime" MustBePresent="true"/>
+                        <AttributeDesignator Category="in.ac.iitb.cse.bodhi.evalpro.lab" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.end" DataType="http://www.w3.org/2001/XMLSchema#dateTime" MustBePresent="true"/>
                     </Apply>
                 </Apply>
                 <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-greater-than-or-equal">
@@ -318,20 +318,14 @@
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime" DataType="http://www.w3.org/2001/XMLSchema#dateTime" MustBePresent="true"/>
                     </Apply>
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
-                        <AttributeDesignator Category="in.ac.iitb.cse.bodhi.evalpro.lab" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.available_from" DataType="http://www.w3.org/2001/XMLSchema#dateTime" MustBePresent="true"/>
+                        <AttributeDesignator Category="in.ac.iitb.cse.bodhi.evalpro.lab" AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.start" DataType="http://www.w3.org/2001/XMLSchema#dateTime" MustBePresent="true"/>
                     </Apply>
                 </Apply>
-                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than-or-equal">
-                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
-                        <AttributeDesignator AttributeId="in.ac.iitb.cse.bodhi.evalpro.environment.ip_integer" DataType="http://www.w3.org/2001/XMLSchema#integer" Category="in.ac.iitb.cse.bodhi.evalpro.environment" MustBePresent="true"/>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                        <AttributeDesignator AttributeId="in.ac.iitb.cse.bodhi.evalpro.lab.ip_allowed" DataType="http://www.w3.org/2001/XMLSchema#boolean" Category="in.ac.iitb.cse.bodhi.evalpro.lab" MustBePresent="true"/>
                     </Apply>
-                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3232235776</AttributeValue>
-                </Apply>
-                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
-                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
-                        <AttributeDesignator AttributeId="in.ac.iitb.cse.bodhi.evalpro.environment.ip_integer" DataType="http://www.w3.org/2001/XMLSchema#integer" Category="in.ac.iitb.cse.bodhi.evalpro.environment" MustBePresent="true"/>
-                    </Apply>
-                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3232236031</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
                 </Apply>
             </Apply>
         </Condition>
