@@ -37,7 +37,7 @@
                     "condition": "Equals",
                     "value": "false"
                 },
-                "$.course.visible": {
+                "$.course.published": {
                     "condition": "Equals",
                     "value": "true"
                 },

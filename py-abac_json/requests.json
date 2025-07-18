@@ -16,7 +16,7 @@
                 "course": {
                     "id": 1,
                     "trashed": "false",
-                    "visible": "true"
+                    "published": "true"
                 },
                 "lab": {
                     "id": 1,
@@ -71,7 +71,7 @@
                 "course": {
                     "id": 1,
                     "trashed": "false",
-                    "visible": "true"
+                    "published": "true"
                 },
                 "lab": {
                     "id": 1,
@@ -126,7 +126,7 @@
                 "course": {
                     "id": "1",
                     "trashed": "false",
-                    "visible": "true"
+                    "published": "true"
                 },
                 "lab": {
                     "id": "1",
