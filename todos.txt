@@ -1,3 +1,0 @@
-Intro to abac, EvalPro Overview through a video or presentation
-Design tabular way of representing the example policy [policy-rules.csv]
-Add lab is in course, program is in lab, testcase is in program
